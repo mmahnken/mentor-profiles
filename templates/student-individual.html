@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+	{{student.name}}
+
+{% endblock %}
+
+
+
+{% block profiletype %}Student{% endblock %}
+
+
+
+{% block picture %}	     	
+	
+		<div class="p-3">
+     		{% if student.pic %}
+
+          <img class="profile-photo" src="{{student.pic}}">
+        {% else %}
+          <img class="profile-photo" src="../../images/person.jpg">
+        {% endif %}
+     	</div>
+ 	
+{% endblock %}
+
+
+
+{% block content %}
+<div class="p-3 border bg-light">
+  	<h3>Basic Info</h3>
+  	<dl class="row">
+
+  		{{ make_section("Name", student.name) }}
+  		{{ make_section("Email", student.email) }}
+  		{{ make_section("Location", student.city) }}
+  		{{ make_section("Timezone", student.timezone) }}
+  		{{ make_section("Description", student.personality) }}
+  		
+  		{% if student.saying %}
+  			{{ make_section("Favorite Saying", student.saying) }}
+  		{% endif %}
+
+	</dl>
+</div>
+
+<div class="p-3 border bg-light">
+  	<h3>Career Info</h3>
+  	<dl class="row">
+
+  		{{ make_section("Before Hackbright", student.before_hb) }}
+  		
+  		{% if student.roles %}
+  			{{ make_section("Which roles are you interested in learning about?", student.roles) }}
+  		{% endif %}
+
+
+	</dl>
+</div>
+
+
+<div class="p-3 border bg-light">
+  	<h3>Mentorship Preferences</h3>
+  	<dl class="row">
+  	
+  		
+  		{{ make_section("I'm looking for a mentor that can...", student.mentor) }}
+  		{{ make_section("Preferred Communication", student.comm) }}
+  		
+      {% if student.worry %}
+        {{ make_section("Biggest Job Search Worry", student.worry) }}
+      {% endif %}
+
+  	</dl>
+</div>
+
+
+
+	
+{% endblock %}

@@ -1,0 +1,11 @@
+img.profile-photo {
+	width: 100px;
+}
+
+img.short-profile-photo {
+	height: 7em;
+}
+
+div.profile-page {
+	page-break-before: always;
+}

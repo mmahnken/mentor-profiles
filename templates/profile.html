@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <link href="../styles.css" rel="stylesheet">
+
+    <title>{{mentor.name}}</title>
+  </head>
+  <body>
+  	{% for mentor in mentors %}
+    <div class="container px-4 profile-page">
+    	<h1>Mentor Profile</h1>
+	  <div class="row gx-5">
+	    <div class="col-2">
+	     <div class="p-3">
+
+	     	{% if mentor.pic %}
+	     	<img class="profile-photo" src="../pics/{{mentor.pic}}">
+	     	{% endif %}
+	   
+
+
+	     </div>
+	    </div>
+	    <div class="col-10">
+	      
+
+	      <div class="p-3 border bg-light">
+	      	<h3>Basic Info</h3>
+	      	<dl class="row">
+
+  				<dt class="col-sm-4">Name</dt>
+		     	<dd class="col-sm-8">{{mentor.name}}</dd>
+
+		     	<dt class="col-sm-4">Email</dt>
+  				<dd class="col-sm-8">{{mentor.email}}</dd>
+	      		
+
+	      		<dt class="col-sm-4">Preferred communication</dt>
+  				<dd class="col-sm-8">{{mentor.comm}}</dd>
+
+  				<dt class="col-sm-4">Location</dt>
+		      	<dd class="col-sm-8">{{mentor.city}}</dd>
+
+		      	<dt class="col-sm-4">Timezone</dt>
+		      	<dd class="col-sm-8">{{mentor.timezone}}</dd>
+
+		      	<dt class="col-sm-4">Description</dt>
+		      	<dd class="col-sm-8">{{mentor.personality}}</dd>
+
+		      	{% if mentor.linkedin %}
+		      	
+		      	<dt class="col-sm-4">Linkedin</dt>
+				<dd class="col-sm-8"><a href="{{mentor.linkedin}}">{{mentor.linkedin}}</a></dd>		      	
+
+				{% endif %}
+	      </dl>
+	    </div>
+
+	      <div class="p-3 border bg-light">
+	      	<h3>Technical Info</h3>
+	      	<dl class="row">
+	      		<dt class="col-sm-4">Title</dt>
+		      	<dd class="col-sm-8">{{mentor.job}}</dd>
+
+		     	<dt class="col-sm-4">Day-to-day</dt>
+		      	<dd class="col-sm-8">{{mentor.daily_work}}</dd>
+
+
+  				<dt class="col-sm-4">Technical Passions</dt>
+  				<dd class="col-sm-8">{{mentor.technical_passion}}</dd>
+
+  				
+					      		
+	      </dl>
+	    </div>
+
+	    <div class="p-3 border bg-light">
+	      	<h3>Mentoring Info</h3>
+	      	<dl class="row">
+
+
+	      		<dt class="col-sm-4">Motivation for Mentoring</dt>
+  				<dd class="col-sm-8">{{mentor.why}}</dd>
+
+  				<dt class="col-sm-4">Favorite Advice</dt>
+  				<dd class="col-sm-8">"{{mentor.advice}}"</dd>
+
+	      	{% if mentor.experience %}
+
+	      		<dt class="col-sm-4">Mentorship Experience</dt>
+  				<dd class="col-sm-8">{{mentor.experience}}</dd>
+     	
+	      	{% endif %}
+
+
+  			{% if mentor.hb_exp %}
+
+
+  				<dt class="col-sm-4">Hackbright Mentoring Experience? How many cohorts?</dt>
+  				<dd class="col-sm-8">{{mentor.hb_exp}}</dd>
+
+  			{% endif %}
+
+		     {% if mentor.strengths %}
+
+  				<dt class="col-sm-4">Personal Job Search Strengths</dt>
+  				<dd class="col-sm-8">{{mentor.strengths}}</dd>
+	      	
+	      	{% endif %}
+
+	      		<dt class="col-sm-4">How They Want to Help You</dt>
+  				
+	      	
+  				
+
+  				<dd class="col-sm-8">
+  					<ul>
+  						{% for topic in mentor.help_topics %}
+  						    <li>{{topic}}</li>
+  					    {% endfor %}
+  					</ul>
+  				</dd>
+	      	
+	      		
+	      </dl>
+	      	
+	    </div>
+
+
+	  </div>
+	</div>
+	</div>
+
+
+	{% endfor %}
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
